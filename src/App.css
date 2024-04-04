@@ -1,17 +1,18 @@
-body{
+body {
   margin: 0;
 }
 
-main{
-  max-width: 1280px;
+main {
+  /* max-width: 1280px; */
   margin: 0 auto;
+  padding-top: 80px;
 }
 
-figure{
+figure {
   margin: 0;
 }
 
-header{
+header {
   position: fixed;
   width: 100%;
 }
@@ -19,10 +20,14 @@ header{
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;  
+  align-items: center;
   color: white;
-  padding: 15px 20px;  
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  padding: 15px 20px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0)
+  );
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
@@ -48,14 +53,64 @@ header{
 }
 
 .menu-icon {
-  display: none; 
+  display: none;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-item {
+  width: 300px; /* Ajusta al tamaño de tus elementos */
+  height: 200px; /* Ajusta al tamaño de tus elementos */
+  margin: 0 15px;
+  background-color: #ddd; /* Ajusta al estilo de tus elementos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex: 10;
+  margin-top: 30px;
+}
+
+.button-container{
+  flex: 1;
+}
+
+.carousel-container button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;  
 }
 
 @media screen and (max-width: 991px) {
   .nav-links {
-    display: none; 
+    display: none;
   }
   .menu-icon {
     display: block;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1536px;
+
+  @media (max-width: 1535px) {
+    max-width: 1280px;
+  }
+
+  @media (max-width: 1279px) {
+    max-width: 1024px;
+  }
+
+  @media (max-width: 1023px) {
+    max-width: 768px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 640px;
   }
 }
