@@ -1,4 +1,3 @@
-// import './App.css';
 
 const NavBar = () => {
   return (
@@ -8,8 +7,7 @@ const NavBar = () => {
         <li><a href="#">Destacadas</a></li>
         <li><a href="#">Cartelera</a></li>
         <li><a href="#">Comprar ticket</a></li>
-      </ul>
-      <div className="conectar">Conectar</div>
+      </ul>      
     </div>
   );
 }
