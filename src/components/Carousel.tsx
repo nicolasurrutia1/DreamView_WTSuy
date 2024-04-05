@@ -1,28 +1,68 @@
 import { useState } from "react";
-// import './Carousel.css';
+import { useDataContext } from "../context/dataContext";
+import LeftButton from "./UI/LeftButton";
+import RightButton from "./UI/RightButton";
+import CarouselItem from "./CarouselItem";
 
 const Carousel = () => {
-  const [current, setCurrent] = useState(0);
-  const items = ["Elemento1", "Elemento2", "Elemento3"]; // Reemplaza con tus elementos
+  const [current, setCurrent] = useState<number>(0);
+  const { data } = useDataContext();
+
+  const items =
+    data && data.results && Array.isArray(data.results)
+      ? data.results.slice(0, 3)
+      : [];
 
   const next = () => {
-    setCurrent(current === items.length - 1 ? 0 : current + 1);
+    setCurrent((prevCurrent) =>
+      prevCurrent === items.length - 1 ? 0 : prevCurrent + 1
+    );
   };
 
   const prev = () => {
-    setCurrent(current === 0 ? items.length - 1 : current - 1);
+    setCurrent((prevCurrent) =>
+      prevCurrent === 0 ? items.length - 1 : prevCurrent - 1
+    );
+  };
+
+  const currentPosterUrl = items[current]?.poster_path ?? "";
+
+  const containerStyle:React.CSSProperties = {
+    backgroundImage: `url(https://image.tmdb.org/t/p/w500${currentPosterUrl})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "top",
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    position: "relative",
+    zIndex: 1,
+  };  
+
+  const overlayStyle: React.CSSProperties = { 
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", 
+    zIndex: -1,
   };
 
   return (
-    <div className="carousel-container">
-      <div className="button-container">{current > 0 && <button onClick={prev}>Anterior</button>}</div>
-      <div className="carousel-item">{items[current]}</div>
-      <div className="button-container">
-        {current < items.length - 1 && (
-          <button onClick={next}>Siguiente</button>
-        )}
+    <section className="carousel-container" style={containerStyle}>
+       <div style={overlayStyle}></div>
+      <LeftButton onClick={prev} />
+      <div className="carousel-wrapper">
+        {items.map((item, index) => (
+          <CarouselItem
+            key={item.id}
+            item={item}
+            index={index}
+            current={current}
+          />
+        ))}
       </div>
-    </div>
+      <RightButton onClick={next} />
+    </section>
   );
 };
 

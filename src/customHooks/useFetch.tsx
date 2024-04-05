@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 
-export function useFetch(url: string) {
-    const [data, setData] = useState<any>(null);
+interface ApiResponse<T> {
+    data: T | null;
+    loading: boolean;
+    error: Error | null;
+  }
+
+export function useFetch<T>(url: string): ApiResponse<T> {
+    const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error | null>(null);
 
@@ -10,7 +16,7 @@ export function useFetch(url: string) {
             setLoading(true);
             try {
                 const response = await fetch(url);
-                const newData = await response.json();
+                const newData = await response.json() as T;
                 setData(newData);                
             } catch(e: unknown) {
                 if (e instanceof Error) { 

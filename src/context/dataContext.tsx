@@ -1,12 +1,32 @@
 import React, { createContext, useContext } from "react";
 import { useFetch } from "../customHooks/useFetch";
 
-interface Data {
-  // Define la estructura de tu objeto de datos si es necesario
+interface Movie {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
+interface MovieResponse {
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
 }
 
 interface ContextProps {
-  data: Data[] | null;
+  data: MovieResponse | null;
   loading: boolean;
   error: Error | null;
 }
@@ -27,10 +47,10 @@ const popularMoviesUrl = `${baseURL}/movie/popular?api_key=${apiKey}&language=es
 
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
-  const { data, loading, error } = useFetch(
+  const { data, loading, error } = useFetch<MovieResponse>(
     `${popularMoviesUrl}`
   );
-  console.log(error)
+
   return (
     <DataContext.Provider value={{ data, loading, error }}>
       {children}

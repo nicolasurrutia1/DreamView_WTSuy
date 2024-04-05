@@ -5,7 +5,7 @@ body {
 main {
   /* max-width: 1280px; */
   margin: 0 auto;
-  padding-top: 80px;
+  /* padding-top: 110px; */
 }
 
 figure {
@@ -15,6 +15,7 @@ figure {
 header {
   position: fixed;
   width: 100%;
+  z-index: 10;
 }
 
 .navbar {
@@ -56,33 +57,134 @@ header {
   display: none;
 }
 
+/* Carousel */
 .carousel-container {
+  display: flex;
+  height: 100vh;
+
+  padding: 120px 15px;
+}
+.button-container {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.carousel-wrapper {
+  position: relative;
+  flex: 10;
 }
 
 .carousel-item {
-  width: 300px; /* Ajusta al tamaño de tus elementos */
-  height: 200px; /* Ajusta al tamaño de tus elementos */
-  margin: 0 15px;
-  background-color: #ddd; /* Ajusta al estilo de tus elementos */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  z-index: 5;
+}
+
+.itemPoster {
+  flex: 3;
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+.scoreMovie {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 75px;
+  height: 75px;
+  background-color: #554f95;
+  color: white;
+  font-size: 15px;
+  border-radius: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  flex: 10;
-  margin-top: 30px;
+  flex-direction: column;
+}
+.scoreMovie p {
+  margin: 0;
+}
+.scoreMovie p span{
+  font-weight: bolder;
+}
+.itemInfo {
+  flex: 6;
+  /* padding: 30px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.button-container{
-  flex: 1;
+.itemText {
+  border: 2px solid #554f95;
+  background-color: rgba(217, 217, 217, 0.8);
+  padding: 15px 30px;
+  max-width: 85%;
+  border-radius: 10px;
 }
 
-.carousel-container button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;  
+.itemText h1 {
+  font-size: 35px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #181818;
+}
+.itemText h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  height: 2px;
+  background-color: black;
+}
+
+.itemText p {
+  font-size: 18px;
+  color: #3a3a3a;
+}
+.itemBtns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.TrailerImg {
+  position: relative;
+  width: 100px;
+  cursor: pointer;
+}
+.TrailerImg img {
+  width: 100px;
+}
+.TrailerImg div {
+  position: relative;
+}
+.TrailerImg div::after {
+  content: "";
+  position: absolute;
+  bottom: 28%;
+  left: 10%;
+  width: 80%;
+  height: 45%;
+  background-color: #554f95;
+  z-index: -1;
+}
+
+.TrailerImg figcaption {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 15%;
 }
 
 @media screen and (max-width: 991px) {
