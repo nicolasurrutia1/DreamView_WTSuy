@@ -2,6 +2,7 @@ import "./App.css";
 
 import NavBar from "./components/UI/navbar";
 import Carousel from "./components/Carousel";
+import Cartelera from "./components/Cartelera";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       {/* className="container" */}
       <main >
           <Carousel  />
+          <Cartelera  />
       </main>
     </>
   );

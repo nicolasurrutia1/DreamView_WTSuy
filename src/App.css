@@ -96,6 +96,11 @@ header {
   justify-content: end;
   position: relative;
 }
+
+.itemPoster img:nth-child(2) {
+  width: 100%;
+}
+
 .scoreMovie {
   position: absolute;
   top: -25px;
@@ -186,6 +191,50 @@ header {
   bottom: 0;
   left: 15%;
 }
+
+/* Cartelera */
+
+.grid-wrapper{
+  background-color: #2A303C;
+  padding: 5%;
+  color: white;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 20px; 
+  /* align-items: stretch;   */
+}
+
+.grid-item {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.grid-item h3{
+  margin-bottom: auto;
+}
+
+.grid-item img {
+  width: 100%;
+  max-height: 300px;
+  margin-top: 10px;
+}
+
+.grid-item button {
+  background-color: #554F95; 
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 
 @media screen and (max-width: 991px) {
   .nav-links {
