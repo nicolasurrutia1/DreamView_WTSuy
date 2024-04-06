@@ -24,6 +24,12 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
   const posterUrl = usePosterUrl(item.poster_path);
   const isActive = index === current ? "active" : "";
 
+  const handleReviewClick = () => {
+    document.getElementById("resena")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className={`carousel-item ${isActive}`}>
       <div className="itemPoster">
@@ -34,6 +40,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
         </div>
         <img src={posterUrl} alt="Poster" />
       </div>
+      <h1 className="titleMobile">{item.title}</h1>
       <div className="itemInfo">
         <div className="itemText">
           <h1>{item.title}</h1>
@@ -48,7 +55,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
           </figure>
           <figure className="TrailerImg">
             <div>
-              <img src={svgRes} alt="Trailer" />
+              <img src={svgRes} alt="Trailer" onClick={handleReviewClick} />
             </div>
             <figcaption>Dejar reseña</figcaption>
           </figure>

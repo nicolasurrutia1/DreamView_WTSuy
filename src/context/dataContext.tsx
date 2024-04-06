@@ -41,7 +41,7 @@ export const useDataContext = () => {
   return useContext(DataContext);
 };
 
-const baseURL = "https://api.themoviedb.org/3"; //SACAR w 
+const baseURL = "https://api.themoviedb.org/3";
 const apiKey = import.meta.env.VITE_API_KEY;
 const popularMoviesUrl = `${baseURL}/movie/popular?api_key=${apiKey}&language=es-ES&page=1`;
 

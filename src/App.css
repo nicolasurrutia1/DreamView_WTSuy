@@ -1,3 +1,16 @@
+:root {
+  --primary-color: #554f95;
+  --secondary-color: #282828;
+  --background-color: #2a303c;
+
+  --text-color: #ffffff;
+  --border-color: #554f95;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -21,7 +34,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: var(--text-color);
   padding: 15px 20px;
   background-image: linear-gradient(
     to bottom,
@@ -30,11 +43,6 @@ header {
   );
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
-
-/* .navbar .logo {
-  background-color: #008080;
-  padding: 5px 10px;
-} */
 
 .nav-links {
   list-style: none;
@@ -49,18 +57,23 @@ header {
 
 .nav-links li a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
 }
 
 .menu-icon {
   display: none;
 }
 
+.reviewBtn {
+  background-color: var(--primary-color);
+  padding: 8px 15px;
+  border-radius: 10%;
+}
+
 /* Carousel */
 .carousel-container {
   display: flex;
   height: 100vh;
-
   padding: 120px 15px;
 }
 .button-container {
@@ -106,8 +119,8 @@ header {
   left: -25px;
   width: 75px;
   height: 75px;
-  background-color: #554f95;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   font-size: 15px;
   border-radius: 10%;
   display: flex;
@@ -123,14 +136,13 @@ header {
 }
 .itemInfo {
   flex: 6;
-  /* padding: 30px; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
 .itemText {
-  border: 2px solid #554f95;
+  border: 2px solid var(--primary-color);
   background-color: rgba(217, 217, 217, 0.8);
   padding: 15px 30px;
   max-width: 85%;
@@ -180,29 +192,34 @@ header {
   left: 10%;
   width: 80%;
   height: 45%;
-  background-color: #554f95;
+  background-color: var(--primary-color);
   z-index: -1;
 }
 
 .TrailerImg figcaption {
-  color: white;
+  color: var(--text-color);
   position: absolute;
   bottom: 0;
   left: 15%;
 }
 
+.titleMobile{
+  display: none;
+  color: var(--text-color);
+  text-align: center;
+}
+
 /* Cartelera */
 .grid-wrapper {
-  background-color: #2a303c;
+  background-color: var(--background-color);
   padding: 5%;
-  color: white;
+  color: var(--text-color);
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  /* align-items: stretch;   */
 }
 
 .grid-item {
@@ -218,12 +235,12 @@ header {
 
 .grid-item img {
   width: 100%;
-  max-height: 300px;
+  max-height: 400px;
   margin-top: 10px;
 }
 
 .grid-item button {
-  background-color: #554f95;
+  background-color: var(--primary-color);
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -235,11 +252,11 @@ header {
 
 /* Movie Review */
 .section-review {
-  background-color: #282828;
+  background-color: var(--secondary-color);
   padding: 5%;
 }
 .review-title {
-  color: white;
+  color: var(--text-color);
 }
 .form-wrapper {
   display: flex;
@@ -249,9 +266,9 @@ header {
 input,
 textarea,
 select {
-  background-color: #282828;
-  color: white;
-  border: 2px solid #554f95;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
   padding: 5%;
   border-radius: 4px;
   margin-top: 10px;
@@ -268,18 +285,17 @@ select {
   margin: 0;
   top: 0px;
   left: 12px;
-  background: #282828;
+  background: var(--secondary-color);
   padding: 1px;
 }
 
-.input-wrapper textarea{
+.input-wrapper textarea {
   height: 200px;
   resize: none;
-  /* pointer-events: none; */
 }
 
 .movie-review-form {
-  color: white;
+  color: var(--text-color);
   max-width: 400px;
   width: 100%;
 }
@@ -297,22 +313,28 @@ select {
 }
 
 .movie-review-form button[type="submit"] {
-  background-color: #282828;
-  border: 2px solid #554f95;
-  color: white;
+  background-color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
 }
 
 .movie-review-form button[type="button"] {
-  background-color: #282828;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
 }
 
-.success-message{
-  color: white;
+.success-message {
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1440px) {
+  .grid-item img {
+    max-height: 300px;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -322,25 +344,32 @@ select {
   .menu-icon {
     display: block;
   }
+  .carousel-container {
+    height: 80vh;
+    padding: 190px 15px;
+  }
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* .container {
-  width: 100%;
-  max-width: 1536px;
-
-  @media (max-width: 1535px) {
-    max-width: 1280px;
+@media screen and (max-width: 540px) {
+  .itemText {
+    display: none;
   }
-
-  @media (max-width: 1279px) {
-    max-width: 1024px;
+  .carousel-item {
+    flex-direction: column;
   }
-
-  @media (max-width: 1023px) {
-    max-width: 768px;
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (max-width: 767px) {
-    max-width: 640px;
+  .grid-item img {
+    max-height: 210px;
   }
-} */
+  .movie-review-form .form-buttons{
+    flex-direction: column;
+  }
+  .titleMobile{
+    display: block;
+  }
+}

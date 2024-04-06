@@ -31,8 +31,7 @@ const MovieReview: React.FC = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData.movie);
+    e.preventDefault();    
     if (validateForm()) {
       setFormSubmitted(true);
     } else {
@@ -111,7 +110,7 @@ const MovieReview: React.FC = () => {
   };
 
   return (
-    <section className="section-review">
+    <section id="resena" className="section-review">
       {formSubmitted ? ( 
         <SubmitExitoso fullName={formData.fullName}
         movieName={formData.movie} />

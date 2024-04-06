@@ -48,7 +48,7 @@ const Carousel = () => {
   };
 
   return (
-    <section className="carousel-container" style={containerStyle}>
+    <section id="destacadas" className="carousel-container" style={containerStyle}>
        <div style={overlayStyle}></div>
       <LeftButton onClick={prev} />
       <div className="carousel-wrapper">

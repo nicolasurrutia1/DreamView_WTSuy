@@ -12,13 +12,13 @@ const NavBar = () => {
         </div>
         <ul className="nav-links">
           <li>
-            <a href="#">Destacadas</a>
+            <a href="#destacadas">Destacadas</a>
           </li>
           <li>
-            <a href="#">Cartelera</a>
+            <a href="#cartelera">Cartelera</a>
           </li>
           <li>
-            <a href="#">Dejar reseña</a>
+            <a className='reviewBtn' href="#resena">Dejar reseña</a>
           </li>
         </ul>
         <div className="menu-icon">
